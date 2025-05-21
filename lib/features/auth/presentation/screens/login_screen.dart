@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../application/providers/auth_provider.dart';
+import '../../application/states/auth_state.dart';
 import '../widgets/login_form.dart';
 
 class LoginScreen extends ConsumerWidget {

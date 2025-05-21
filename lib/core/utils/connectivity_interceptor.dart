@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import '../../exceptions/network_exception.dart';
+import '../exceptions/network_exception.dart';
 
 class ConnectivityInterceptor extends Interceptor {
   final InternetConnectionChecker _connectionChecker;

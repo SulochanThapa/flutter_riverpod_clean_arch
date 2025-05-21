@@ -16,7 +16,7 @@ class NavigationErrorHandler {
               ),
               const SizedBox(height: 16),
               Text(
-                'Route not found: ${state.location}',
+                'Route not found: ${state.matchedLocation}',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: 8),

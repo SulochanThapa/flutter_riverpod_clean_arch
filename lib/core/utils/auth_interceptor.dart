@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import '../../services/token_service.dart';
+import '../utils/token_service.dart';
 
 class AuthInterceptor extends Interceptor {
   final TokenService _tokenService;

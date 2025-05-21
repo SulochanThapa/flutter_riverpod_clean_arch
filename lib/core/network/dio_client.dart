@@ -1,8 +1,11 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import '../constants/api_constants.dart';
 import '../exceptions/network_exception.dart';
-import '../services/token_service.dart';
-import 'interceptors/auth_interceptor.dart';
+import '../utils/connectivity_interceptor.dart';
+import '../utils/token_service.dart';
+import '../utils/auth_interceptor.dart';
 
 class DioClient {
   late final Dio _dio;
@@ -50,7 +53,7 @@ class DioClient {
         queryParameters: queryParameters,
         options: options,
       );
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw NetworkException.fromDioError(e);
     }
   }
@@ -68,7 +71,7 @@ class DioClient {
         queryParameters: queryParameters,
         options: options,
       );
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw NetworkException.fromDioError(e);
     }
   }
@@ -86,7 +89,7 @@ class DioClient {
         queryParameters: queryParameters,
         options: options,
       );
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw NetworkException.fromDioError(e);
     }
   }
@@ -102,7 +105,7 @@ class DioClient {
         queryParameters: queryParameters,
         options: options,
       );
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw NetworkException.fromDioError(e);
     }
   }

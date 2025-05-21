@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import '../../application/providers/auth_provider.dart';
 import '../../application/states/auth_state.dart';
-import '../../../shared/widgets/custom_text_field.dart';
+import '../../../shared/presentation/widgets/custom_text_field.dart';
 
 class LoginForm extends ConsumerStatefulWidget {
   const LoginForm({super.key});
@@ -108,11 +109,11 @@ class _LoginFormState extends ConsumerState<LoginForm> {
           ),
           const SizedBox(height: 16),
           TextButton(
-            onPressed: () => Navigator.pushNamed(context, '/forgot-password'),
+            onPressed: () => context.push('/forgot-password'),
             child: const Text('Forgot Password?'),
           ),
           TextButton(
-            onPressed: () => Navigator.pushNamed(context, '/register'),
+            onPressed: () => context.push('/register'),
             child: const Text('Create an Account'),
           ),
         ],

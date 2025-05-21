@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../features/auth/application/providers/auth_provider.dart';
+import '../../features/auth/application/states/auth_state.dart';
 import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/splash/presentation/screens/splash_screen.dart';
+import '../exceptions/navigation_error_handler.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   final router = RouterNotifier(ref);
@@ -26,6 +28,7 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/home',
         builder: (context, state) => const HomeScreen(),
       ),
+
     ],
     redirect: router._redirect,
     errorBuilder: NavigationErrorHandler.errorScreen,
@@ -80,7 +83,7 @@ class RouterNotifier extends ChangeNotifier {
 
   String? _redirect(BuildContext context, GoRouterState state) {
     try {
-      final path = state.location;
+      final path = state.matchedLocation;
 
       if (path == '/splash') {
         return null;

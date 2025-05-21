@@ -1,7 +1,7 @@
 import 'package:either_dart/either.dart';
 import '../../../../core/exceptions/network_exception.dart';
 import '../../../../core/network/dio_client.dart';
-import '../../../../core/services/token_service.dart';
+import '../../../../core/utils/token_service.dart';
 import '../../domain/entities/user.dart';
 import '../../domain/repositories/i_auth_repository.dart';
 import '../models/user_model.dart';

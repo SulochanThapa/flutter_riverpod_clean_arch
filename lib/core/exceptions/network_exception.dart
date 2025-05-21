@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+
 class NetworkException implements Exception {
   final String message;
   final int? statusCode;
@@ -7,13 +9,13 @@ class NetworkException implements Exception {
     this.statusCode,
   });
 
-  factory NetworkException.fromDioError(DioError error) {
+  factory NetworkException.fromDioError(DioException error) {
     switch (error.type) {
-      case DioErrorType.connectionTimeout:
+      case DioExceptionType.connectionTimeout:
         return const NetworkException(
           message: 'Connection timeout. Please check your internet connection.',
         );
-      case DioErrorType.badResponse:
+      case DioExceptionType.badResponse:
         return NetworkException(
           message: error.response?.data['message'] ?? 'Server error occurred.',
           statusCode: error.response?.statusCode,
